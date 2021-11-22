@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <title>To do List</title>
+  </head>
+  <body>
+    <div id="root">
+      <h1>To do List</h1>
+      <input type="text" @input="addTache" @keyup.enter="addTask" :value="tache" />
+      <button type="submit" @click="addTask">Ajouter la tâche</button>
+      <div class="listes">
+        <div class="toDo">
+          <h2>A Faire</h2>
+          <ul>
+            <li v-for="(element,index) in listAFaire">
+              {{element}}
+              <button type="button" @click="addEnCours(index)">Supprimer</button>
+            </li>
+          </ul>
+        </div>
+        <div class="enCours">
+          <h2>En cours</h2>
+          <ul>
+            <li v-for="(element,index) in listEnCours">
+              {{element}}<button type="button" @click="addTerminee(index)">Terminée</button>
+            </li>
+          </ul>
+        </div>
+        <div class="done">
+          <h2>Terminée</h2>
+          <ul>
+            <li v-for="element in listTerminee">
+              {{element}}<button type="button" @click="Terminee (index)">Supprimer</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+    <script defer src="https://unpkg.com/vue@next"></script>
+    <script defer src="./script.js"></script>
+</html>
